@@ -1,0 +1,2678 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 116,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 99,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div style=\"text-align: center; background-color: #f4f6f8; padding: 15px; border-radius: 5px; border: 1px solid #dce2e8;\">\n  <h2 style=\"color: #202226; margin:0;\">SolarWinds Command Center</h2>\n  <p style=\"color: #586069; margin:0; font-size: 12px;\">Real-time Infrastructure Observability • SQL Direct Access</p>\n</div>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.0.2",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "super-light-blue"
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 0,
+        "y": 3
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(NodeID) \nFROM Nodes \nWHERE Status <> 3 /* Exclude Unmanaged */",
+          "refId": "A"
+        }
+      ],
+      "title": "📊 Total Managed Assets",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#00E3FF"
+              },
+              {
+                "color": "#FFB300",
+                "value": 15
+              },
+              {
+                "color": "#FF0055",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 5,
+        "y": 3
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT AVG(AvgResponseTime)\nFROM Nodes\nWHERE AvgResponseTime > 0 AND Status = 1",
+          "refId": "A"
+        }
+      ],
+      "title": "⚡ Avg Core Latency",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#00E3FF"
+              },
+              {
+                "color": "#FFB300",
+                "value": 1
+              },
+              {
+                "color": "#FF0055",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 10,
+        "y": 3
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(DISTINCT Region)\nFROM Nodes\nWHERE Region IS NOT NULL \n  AND Region <> ''\n  AND (Status = 2 OR ChildStatus = 2 OR Status = 9 OR ChildStatus = 9)",
+          "refId": "A"
+        }
+      ],
+      "title": "⚠️ Impacted Regions",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#FF0055"
+              },
+              {
+                "color": "#FFB300",
+                "value": 95
+              },
+              {
+                "color": "#00E3FF",
+                "value": 99.9
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 15,
+        "y": 3
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    (CAST(SUM(CASE WHEN Status = 1 THEN 1 ELSE 0 END) AS FLOAT) / CAST(NULLIF(COUNT(*), 0) AS FLOAT)) * 100 \nFROM Nodes \nWHERE Status <> 3 /* Exclude Unmanaged */",
+          "refId": "A"
+        }
+      ],
+      "title": "📡 Global Availability",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#56A64B"
+              },
+              {
+                "color": "#FF9830",
+                "value": 10
+              },
+              {
+                "color": "#F2495C",
+                "value": 20
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 19,
+        "y": 3
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(AA.AlertActiveID) \nFROM AlertActive AA\nINNER JOIN AlertObjects AO ON AA.AlertObjectID = AO.AlertObjectID\nINNER JOIN AlertConfigurations AC ON AO.AlertID = AC.AlertID\nWHERE AC.Severity = 2",
+          "refId": "A"
+        }
+      ],
+      "title": "Active Critical Alerts",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "orange",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Node Down"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Node Critical"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Node Warning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 7,
+        "x": 0,
+        "y": 7
+      },
+      "id": 33,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawSql": "WITH LatestResponse AS (\r\n    SELECT \r\n        NodeID, \r\n        ResponseTime, \r\n        PercentLoss,\r\n        ROW_NUMBER() OVER (PARTITION BY NodeID ORDER BY [Timestamp] DESC) as Rnk\r\n    FROM ResponseTime_CS_Detail_hist\r\n),\r\nNodeIssues AS (\r\n    SELECT \r\n        n.NodeID,\r\n        CASE \r\n            WHEN n.Status = 2 THEN 'Node Down'\r\n            WHEN n.Status = 14 THEN 'Node Critical'\r\n            WHEN n.Status = 3 THEN 'Node Warning'\r\n            WHEN i.DownInt > 0 THEN 'Interface(s) Down'\r\n            WHEN v.DownVol > 0 THEN 'Volume(s) Down/Full'\r\n            WHEN lr.PercentLoss > 10 THEN 'High Packet Loss'\r\n            WHEN lr.ResponseTime > 500 THEN 'High Latency'\r\n            ELSE 'Healthy/Other'\r\n        END AS IssueCategory\r\n    FROM NodesData n\r\n    LEFT JOIN (\r\n        SELECT NodeID, COUNT(*) as DownInt \r\n        FROM Interfaces \r\n        WHERE Status = 2 \r\n        GROUP BY NodeID\r\n    ) i ON n.NodeID = i.NodeID\r\n    LEFT JOIN (\r\n        SELECT NodeID, COUNT(*) as DownVol \r\n        FROM Volumes \r\n        WHERE Status IN (2, 3, 14) \r\n        GROUP BY NodeID\r\n    ) v ON n.NodeID = v.NodeID\r\n    LEFT JOIN LatestResponse lr ON n.NodeID = lr.NodeID AND lr.Rnk = 1\r\n    WHERE n.Status NOT IN (9, 11)\r\n)\r\nSELECT\r\n    SUM(CASE WHEN IssueCategory = 'Node Down' THEN 1 ELSE 0 END) AS [Node Down],\r\n    SUM(CASE WHEN IssueCategory = 'Node Critical' THEN 1 ELSE 0 END) AS [Node Critical],\r\n    SUM(CASE WHEN IssueCategory = 'Node Warning' THEN 1 ELSE 0 END) AS [Node Warning],\r\n    SUM(CASE WHEN IssueCategory = 'Interface(s) Down' THEN 1 ELSE 0 END) AS [Interfaces Down],\r\n    SUM(CASE WHEN IssueCategory = 'Volume(s) Down/Full' THEN 1 ELSE 0 END) AS [Volumes Down/Full],\r\n    SUM(CASE WHEN IssueCategory = 'High Packet Loss' THEN 1 ELSE 0 END) AS [High Packet Loss],\r\n    SUM(CASE WHEN IssueCategory = 'High Latency' THEN 1 ELSE 0 END) AS [High Latency]\r\nFROM NodeIssues;",
+          "refId": "A"
+        }
+      ],
+      "title": "ESTATE HEALTH • Active Issues Breakdown",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 7,
+        "y": 7
+      },
+      "id": 1,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "max": 100,
+        "maxVizHeight": 300,
+        "min": 0,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "WITH RegionMapping AS (\r\n    SELECT \r\n        CASE \r\n            WHEN CP.Region LIKE '%UAE%' \r\n              OR CP.Location_Code LIKE 'ABD%' OR N.Caption LIKE 'ABD%'\r\n              OR CP.Location_Code LIKE 'DXB%' OR N.Caption LIKE 'DXB%'\r\n              OR CP.Location_Code LIKE 'DFC%' OR N.Caption LIKE 'DFC%'\r\n              OR CP.Location_Code LIKE 'ALN%' OR N.Caption LIKE 'ALN%'\r\n              OR CP.Location_Code LIKE 'SHJ%' OR N.Caption LIKE 'SHJ%'\r\n              OR CP.Location_Code LIKE 'RAK%' OR N.Caption LIKE 'RAK%'\r\n              OR CP.Location_Code LIKE 'AJM%' OR N.Caption LIKE 'AJM%'\r\n              OR CP.Location_Code LIKE 'FUJ%' OR N.Caption LIKE 'FUJ%'\r\n              OR N.Caption LIKE 'mss-al%' \r\n              OR N.Caption LIKE 'AE%' OR N.Caption LIKE 'ae%' THEN 'UAE'\r\n            WHEN CP.Location_Code LIKE 'KSA%' OR N.Caption LIKE 'KSA%' THEN 'Saudi Arabia'\r\n            WHEN CP.Location_Code LIKE 'PAK%' OR N.Caption LIKE 'PAK%' THEN 'Pakistan'\r\n            WHEN CP.Location_Code LIKE 'QAT%' OR N.Caption LIKE 'QAT%' OR N.Caption LIKE 'qat%' THEN 'Qatar'\r\n            WHEN CP.Location_Code LIKE 'OMN%' OR CP.Location_Code LIKE 'MUS%' OR N.Caption LIKE 'OMN%' OR N.Caption LIKE 'MUS%' THEN 'Oman'\r\n            WHEN CP.Location_Code LIKE 'BAH%' OR N.Caption LIKE 'BAH%' THEN 'Bahrain'\r\n            WHEN CP.Location_Code LIKE 'KWT%' OR N.Caption LIKE 'KWT%' OR N.Caption LIKE 'Kuwait%' THEN 'Kuwait'\r\n            WHEN CP.Location_Code LIKE 'IND%' OR N.Caption LIKE 'IND%' THEN 'India'\r\n            WHEN CP.Location_Code LIKE 'LKA%' OR N.Caption LIKE 'LKA%' THEN 'Sri Lanka'\r\n            WHEN CP.Location_Code LIKE 'EGY%' OR N.Caption LIKE 'EGY%' THEN 'Egypt'\r\n            WHEN CP.Location_Code LIKE 'SGP%' OR N.Caption LIKE 'SGP%' THEN 'Singapore'\r\n            WHEN CP.Location_Code LIKE 'HKG%' OR N.Caption LIKE 'HKG%' THEN 'Hong Kong'\r\n            WHEN CP.Location_Code LIKE 'KE%'   OR N.Caption LIKE 'KE%'   THEN 'Kenya'\r\n            WHEN CP.Region IS NOT NULL AND CP.Region NOT IN ('', 'Global') THEN CP.Region\r\n            WHEN N.Caption LIKE 'Azure%' THEN 'Cloud (Azure)'\r\n            ELSE 'Other'\r\n        END AS [Region]\r\n    FROM dbo.NodesData AS N\r\n    LEFT JOIN dbo.NodesCustomProperties AS CP ON N.NodeID = CP.NodeID\r\n    WHERE N.Status = 2\r\n)\r\nSELECT Region, COUNT(*) as [Down]\r\nFROM RegionMapping\r\nGROUP BY Region\r\nORDER BY [Down] DESC;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Nodes Down by Region",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "yellow"
+              },
+              {
+                "color": "orange",
+                "value": 10
+              },
+              {
+                "color": "dark-orange",
+                "value": 25
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 7
+      },
+      "id": 102,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "max": 50,
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "format": "table",
+          "rawSql": "WITH LatestLoss AS (\r\n    SELECT NodeID, PercentLoss,\r\n    ROW_NUMBER() OVER (PARTITION BY NodeID ORDER BY Timestamp DESC) as Rnk\r\n    FROM ResponseTime_CS_Detail_hist\r\n),\r\nInterfaceIssues AS (\r\n    SELECT NodeID, COUNT(*) as DownInt FROM Interfaces WHERE Status = 2 GROUP BY NodeID\r\n),\r\nRegionMapping AS (\r\n    SELECT \r\n        CASE \r\n            WHEN CP.Region LIKE '%UAE%' \r\n              OR CP.Location_Code LIKE 'ABD%' OR N.Caption LIKE 'ABD%'\r\n              OR CP.Location_Code LIKE 'DXB%' OR N.Caption LIKE 'DXB%'\r\n              OR CP.Location_Code LIKE 'DFC%' OR N.Caption LIKE 'DFC%'\r\n              OR CP.Location_Code LIKE 'ALN%' OR N.Caption LIKE 'ALN%'\r\n              OR CP.Location_Code LIKE 'SHJ%' OR N.Caption LIKE 'SHJ%'\r\n              OR CP.Location_Code LIKE 'RAK%' OR N.Caption LIKE 'RAK%'\r\n              OR CP.Location_Code LIKE 'AJM%' OR N.Caption LIKE 'AJM%'\r\n              OR CP.Location_Code LIKE 'FUJ%' OR N.Caption LIKE 'FUJ%'\r\n              OR N.Caption LIKE 'mss-al%' \r\n              OR N.Caption LIKE 'AE%' OR N.Caption LIKE 'ae%' THEN 'UAE'\r\n            WHEN CP.Location_Code LIKE 'KSA%' OR N.Caption LIKE 'KSA%' THEN 'Saudi Arabia'\r\n            WHEN CP.Location_Code LIKE 'PAK%' OR N.Caption LIKE 'PAK%' THEN 'Pakistan'\r\n            WHEN CP.Location_Code LIKE 'QAT%' OR N.Caption LIKE 'QAT%' OR N.Caption LIKE 'qat%' THEN 'Qatar'\r\n            WHEN CP.Location_Code LIKE 'OMN%' OR CP.Location_Code LIKE 'MUS%' OR N.Caption LIKE 'OMN%' OR N.Caption LIKE 'MUS%' THEN 'Oman'\r\n            WHEN CP.Location_Code LIKE 'BAH%' OR N.Caption LIKE 'BAH%' THEN 'Bahrain'\r\n            WHEN CP.Location_Code LIKE 'KWT%' OR CP.Location_Code LIKE 'Kuwait%' OR N.Caption LIKE 'KWT%' OR N.Caption LIKE 'Kuwait%' THEN 'Kuwait'\r\n            WHEN CP.Location_Code LIKE 'IND%' OR N.Caption LIKE 'IND%' THEN 'India'\r\n            WHEN CP.Location_Code LIKE 'LKA%' OR N.Caption LIKE 'LKA%' THEN 'Sri Lanka'\r\n            WHEN CP.Location_Code LIKE 'EGY%' OR N.Caption LIKE 'EGY%' THEN 'Egypt'\r\n            WHEN CP.Location_Code LIKE 'SGP%' OR N.Caption LIKE 'SGP%' THEN 'Singapore'\r\n            WHEN CP.Location_Code LIKE 'HKG%' OR N.Caption LIKE 'HKG%' THEN 'Hong Kong'\r\n            WHEN CP.Location_Code LIKE 'KE%'   OR N.Caption LIKE 'KE%'   THEN 'Kenya'\r\n            ELSE 'Other'\r\n        END AS [Region],\r\n        N.NodeID, N.Status\r\n    FROM dbo.NodesData AS N\r\n    LEFT JOIN dbo.NodesCustomProperties AS CP ON N.NodeID = CP.NodeID\r\n    WHERE N.Status NOT IN (9, 11)\r\n)\r\nSELECT RM.Region, COUNT(*) as [Warnings]\r\nFROM RegionMapping RM\r\nLEFT JOIN InterfaceIssues i ON RM.NodeID = i.NodeID\r\nLEFT JOIN LatestLoss m ON RM.NodeID = m.NodeID AND m.Rnk = 1\r\nWHERE \r\n    RM.Status = 3 \r\n    OR (RM.Status = 1 AND (ISNULL(i.DownInt, 0) > 0 OR ISNULL(m.PercentLoss, 0) > 0))\r\nGROUP BY RM.Region\r\nORDER BY [Warnings] DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "Warnings & Interfaces Down",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 10,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.8,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "hidden",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT TOP 10\n    AC.Name AS [Alert Name],\n    COUNT(AH.AlertHistoryID) AS [Trigger Count]\nFROM AlertHistory AH\nINNER JOIN AlertObjects AO ON AH.AlertObjectID = AO.AlertObjectID\nINNER JOIN AlertConfigurations AC ON AO.AlertID = AC.AlertID\nWHERE AH.TimeStamp >= DATEADD(day, -30, GETDATE()) \n  AND AH.EventType = 0 -- 0 = Triggered\nGROUP BY AC.Name\nORDER BY [Trigger Count] DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "Alert Noise (Top Definitions 30d)",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent"
+              },
+              {
+                "color": "#FF9830",
+                "value": 80
+              },
+              {
+                "color": "#F2495C",
+                "value": 90
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU %"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory %"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT TOP 10 \n    Caption AS [Device],\n    IP_Address AS [IP],\n    CAST(CPULoad AS INT) AS [CPU %],\n    CAST(PercentMemoryUsed AS INT) AS [Memory %]\nFROM Nodes\nWHERE Status = 1 \n  AND (CPULoad > 80 OR PercentMemoryUsed > 80) \nORDER BY CPULoad DESC, PercentMemoryUsed DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "🔥 Top 10 Hot Nodes (CPU/Mem)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "description": "Real-time regional health. \nCircle Size = Infrastructure Volume.\nColor = Operational Status.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-green"
+              },
+              {
+                "color": "#FFB300",
+                "value": 2
+              },
+              {
+                "color": "#FF0055",
+                "value": 3
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Region_Status_Code"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1": {
+                        "index": 0,
+                        "text": "Stable"
+                      },
+                      "2": {
+                        "index": 1,
+                        "text": "Warning (Child)"
+                      },
+                      "3": {
+                        "index": 2,
+                        "text": "CRITICAL (Down)"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 16,
+        "x": 0,
+        "y": 24
+      },
+      "id": 17,
+      "options": {
+        "basemap": {
+          "config": {
+            "server": "streets",
+            "showLabels": true,
+            "theme": "auto"
+          },
+          "name": "Layer 0",
+          "type": "osm-standard"
+        },
+        "controls": {
+          "mouseWheelZoom": true,
+          "showAttribution": false,
+          "showDebug": false,
+          "showMeasure": false,
+          "showScale": false,
+          "showZoom": true
+        },
+        "layers": [
+          {
+            "config": {
+              "location": {
+                "latitude": "latitude",
+                "longitude": "longitude",
+                "mode": "coords"
+              },
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "field": "Region_Status_Code",
+                  "fixed": "dark-green"
+                },
+                "opacity": 0.8,
+                "size": {
+                  "field": "Total_Nodes",
+                  "fixed": 15,
+                  "max": 35,
+                  "min": 10
+                },
+                "symbol": {
+                  "fixed": "img/icons/unicons/cloud-data-connection.svg",
+                  "mode": "fixed"
+                },
+                "text": {
+                  "field": "Region",
+                  "fixed": "",
+                  "show": false
+                }
+              }
+            },
+            "name": "Regional Status",
+            "type": "markers"
+          }
+        ],
+        "tooltip": {
+          "mode": "details"
+        },
+        "view": {
+          "allLayers": true,
+          "id": "zero",
+          "lat": 20,
+          "lon": 60,
+          "zoom": 3
+        }
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    Region,\n    COUNT(NodeID) as Total_Nodes,\n    SUM(CASE WHEN Status = 2 THEN 1 ELSE 0 END) as Nodes_Down,\n    SUM(CASE WHEN ChildStatus = 2 THEN 1 ELSE 0 END) as Children_Down,\n    /* SCORING FOR COLOR THRESHOLDS:\n       1 = Healthy (Cyan)\n       2 = Warning/Child Down (Orange)\n       3 = Critical/Main Node Down (Red) \n    */\n    CASE \n        WHEN SUM(CASE WHEN Status = 2 THEN 1 ELSE 0 END) > 0 THEN 3 \n        WHEN SUM(CASE WHEN ChildStatus = 2 THEN 1 ELSE 0 END) > 0 THEN 2 \n        ELSE 1 \n    END as Region_Status_Code,\n    /* Hardcoded Coordinates for Reliability */\n    CASE \n        WHEN Region = 'UAE' THEN 25.2048\n        WHEN Region = 'Bahrain' THEN 26.0667\n        WHEN Region = 'Oman' THEN 21.4735\n        WHEN Region = 'Egypt' THEN 26.8206\n        WHEN Region = 'Srilanka' THEN 7.8731\n        WHEN Region = 'KSA' THEN 23.8859\n        WHEN Region = 'Jordan' THEN 30.5852\n        WHEN Region = 'Qatar' THEN 25.3548\n        WHEN Region = 'Kuwait' THEN 29.3117\n        WHEN Region = 'Turkey' THEN 38.9637\n        WHEN Region LIKE '%Singapore%' THEN 1.3521\n        WHEN Region = 'Hong Kong' THEN 22.3193\n        WHEN Region = 'Thailand' THEN 15.8700\n        WHEN Region = 'Kenya' THEN -0.0236\n        WHEN Region = 'Uganda' THEN 1.3733\n        WHEN Region = 'IND' THEN 20.5937\n        WHEN Region = 'Pakistan' THEN 30.3753\n        ELSE 0\n    END AS latitude,\n    CASE \n        WHEN Region = 'UAE' THEN 55.2708\n        WHEN Region = 'Bahrain' THEN 50.5577\n        WHEN Region = 'Oman' THEN 55.9754\n        WHEN Region = 'Egypt' THEN 30.8025\n        WHEN Region = 'Srilanka' THEN 80.7718\n        WHEN Region = 'KSA' THEN 45.0792\n        WHEN Region = 'Jordan' THEN 36.2384\n        WHEN Region = 'Qatar' THEN 51.1839\n        WHEN Region = 'Kuwait' THEN 47.4818\n        WHEN Region = 'Turkey' THEN 35.2433\n        WHEN Region LIKE '%Singapore%' THEN 103.8198\n        WHEN Region = 'Hong Kong' THEN 114.1694\n        WHEN Region = 'Thailand' THEN 100.9925\n        WHEN Region = 'Kenya' THEN 37.9062\n        WHEN Region = 'Uganda' THEN 32.2903\n        WHEN Region = 'IND' THEN 78.9629\n        WHEN Region = 'Pakistan' THEN 69.3451\n        ELSE 0\n    END AS longitude\nFROM Nodes\nWHERE Region IS NOT NULL AND Region <> ''\nGROUP BY Region",
+          "refId": "A"
+        }
+      ],
+      "title": "🌍 Global Infrastructure Status",
+      "type": "geomap"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "description": "Stacked bars showing total impacted nodes per vendor.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 85,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Nodes_Critical_Down"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FF0055",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Nodes_Degraded_Children"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FFB300",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Vendor"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 16,
+        "y": 24
+      },
+      "id": 51,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.8,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    Vendor,\n    SUM(CASE WHEN Status = 2 THEN 1 ELSE 0 END) AS Nodes_Critical_Down,\n    SUM(CASE WHEN Status = 1 AND ChildStatus = 2 THEN 1 ELSE 0 END) AS Nodes_Degraded_Children\nFROM Nodes\nWHERE Vendor IS NOT NULL \n  AND Vendor <> 'Unknown'\n  AND (Status = 2 OR ChildStatus = 2) /* Filter to show only impacted nodes */\nGROUP BY Vendor\nHAVING SUM(CASE WHEN Status = 2 THEN 1 ELSE 0 END) > 0 OR SUM(CASE WHEN Status = 1 AND ChildStatus = 2 THEN 1 ELSE 0 END) > 0\nORDER BY Nodes_Critical_Down DESC, Nodes_Degraded_Children DESC",
+          "refId": "A"
+        }
+      ],
+      "title": "🛡️ Vendor Risk Score",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "color": "green",
+                  "index": 0
+                },
+                "2": {
+                  "color": "red",
+                  "index": 1
+                },
+                "3": {
+                  "color": "yellow",
+                  "index": 2
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "basic",
+                  "type": "color-background",
+                  "wrapText": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge",
+                  "valueDisplayMode": "color"
+                }
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge",
+                  "valueDisplayMode": "color"
+                }
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PercentLoss"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge",
+                  "valueDisplayMode": "color"
+                }
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "dataset": "SolarWindsOrion",
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "format": "table",
+          "rawSql": "SELECT TOP 50\r\n      Caption AS NodeName\r\n    , CPULoad AS CPU\r\n    , PercentMemoryUsed AS Memory\r\n    , PercentLoss\r\n    , Status\r\n    , StatusDescription\r\nFROM [dbo].[Nodes]\r\nWHERE Status NOT IN (1, 11, 9) -- 1=Up, 11=External, 9=Unmanaged\r\nORDER BY CPULoad DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "Nodes Under Pressure (High Load / Not Up)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "description": "Real-time distribution of node availability. Pivoted for color integrity.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Up"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#32D74B",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Down"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FF453A",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Warning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FF9F0A",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Unmanaged"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#8E8E93",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Other"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#64D2FF",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 7,
+        "x": 0,
+        "y": 44
+      },
+      "id": 100,
+      "options": {
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "strokeWidth": 1,
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "format": "table",
+          "rawSql": "SELECT \r\n    SUM(CASE WHEN Status = 1 THEN 1 ELSE 0 END) AS [Up],\r\n    SUM(CASE WHEN Status = 2 THEN 1 ELSE 0 END) AS [Down],\r\n    SUM(CASE WHEN Status = 3 THEN 1 ELSE 0 END) AS [Warning],\r\n    SUM(CASE WHEN Status = 9 THEN 1 ELSE 0 END) AS [Unmanaged],\r\n    SUM(CASE WHEN Status NOT IN (1,2,3,9) THEN 1 ELSE 0 END) AS [Other]\r\nFROM dbo.NodesData;",
+          "refId": "A"
+        }
+      ],
+      "title": "SYSTEM HEALTH • Node Status",
+      "type": "piechart"
+    },
+    {
+      "description": "Regional availability monitoring. Ranked by critical impact.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#FF453A"
+              },
+              {
+                "color": "#FF9F0A",
+                "value": 95
+              },
+              {
+                "color": "#32D74B",
+                "value": 99
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Region"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "left"
+              },
+              {
+                "id": "custom.width",
+                "value": 250
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Availability %"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "gauge",
+                  "valueDisplayMode": "color"
+                }
+              },
+              {
+                "id": "decimals",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Down"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "gray"
+                    },
+                    {
+                      "color": "#FF453A",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 17,
+        "x": 7,
+        "y": 44
+      },
+      "id": 27,
+      "options": {
+        "cellHeight": "md",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Nodes",
+            "Up",
+            "Down"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Down"
+          }
+        ]
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    CASE \r\n        WHEN CP.Region LIKE '%UAE%' \r\n          OR CP.Location_Code LIKE 'ABD%' OR N.Caption LIKE 'ABD%'\r\n          OR CP.Location_Code LIKE 'DXB%' OR N.Caption LIKE 'DXB%'\r\n          OR CP.Location_Code LIKE 'DFC%' OR N.Caption LIKE 'DFC%'\r\n          OR CP.Location_Code LIKE 'ALN%' OR N.Caption LIKE 'ALN%'\r\n          OR CP.Location_Code LIKE 'SHJ%' OR N.Caption LIKE 'SHJ%'\r\n          OR CP.Location_Code LIKE 'RAK%' OR N.Caption LIKE 'RAK%'\r\n          OR CP.Location_Code LIKE 'AJM%' OR N.Caption LIKE 'AJM%'\r\n          OR CP.Location_Code LIKE 'FUJ%' OR N.Caption LIKE 'FUJ%'\r\n          OR N.Caption LIKE 'mss-al%' \r\n          OR N.Caption LIKE 'AE%' OR N.Caption LIKE 'ae%' THEN 'UAE'\r\n        WHEN CP.Location_Code LIKE 'KSA%' OR N.Caption LIKE 'KSA%' THEN 'Saudi Arabia'\r\n        WHEN CP.Location_Code LIKE 'PAK%' OR N.Caption LIKE 'PAK%' THEN 'Pakistan'\r\n        WHEN CP.Location_Code LIKE 'QAT%' OR N.Caption LIKE 'QAT%' OR N.Caption LIKE 'qat%' THEN 'Qatar'\r\n        WHEN CP.Location_Code LIKE 'OMN%' OR CP.Location_Code LIKE 'MUS%' OR N.Caption LIKE 'OMN%' OR N.Caption LIKE 'MUS%' THEN 'Oman'\r\n        WHEN CP.Location_Code LIKE 'BAH%' OR N.Caption LIKE 'BAH%' THEN 'Bahrain'\r\n        WHEN CP.Location_Code LIKE 'KWT%' OR N.Caption LIKE 'KWT%' OR N.Caption LIKE 'Kuwait%' THEN 'Kuwait'\r\n        WHEN CP.Location_Code LIKE 'IND%' OR N.Caption LIKE 'IND%' THEN 'India'\r\n        WHEN CP.Location_Code LIKE 'LKA%' OR N.Caption LIKE 'LKA%' THEN 'Sri Lanka'\r\n        WHEN CP.Location_Code LIKE 'EGY%' OR N.Caption LIKE 'EGY%' THEN 'Egypt'\r\n        WHEN CP.Location_Code LIKE 'SGP%' OR N.Caption LIKE 'SGP%' THEN 'Singapore'\r\n        WHEN CP.Location_Code LIKE 'HKG%' OR N.Caption LIKE 'HKG%' THEN 'Hong Kong'\r\n        WHEN CP.Location_Code LIKE 'KE%'   OR N.Caption LIKE 'KE%'   THEN 'Kenya'\r\n        WHEN CP.Region IS NOT NULL AND CP.Region NOT IN ('', 'Global') THEN CP.Region\r\n        WHEN N.Caption LIKE 'Azure%' THEN 'Cloud (Azure)'\r\n        ELSE 'Global' \r\n    END AS [Region],\r\n    COUNT(N.NodeID) AS [Nodes],\r\n    SUM(CASE WHEN N.Status = 1 THEN 1 ELSE 0 END) AS [Up],\r\n    SUM(CASE WHEN N.Status = 2 THEN 1 ELSE 0 END) AS [Down],\r\n    (CAST(SUM(CASE WHEN N.Status = 1 THEN 1 ELSE 0 END) AS FLOAT) / NULLIF(COUNT(N.NodeID), 0)) * 100 AS [Availability %]\r\nFROM dbo.NodesData AS N\r\nLEFT JOIN dbo.NodesCustomProperties AS CP ON N.NodeID = CP.NodeID\r\nWHERE N.Status <> 9\r\nGROUP BY \r\n    CASE \r\n        WHEN CP.Region LIKE '%UAE%' \r\n          OR CP.Location_Code LIKE 'ABD%' OR N.Caption LIKE 'ABD%'\r\n          OR CP.Location_Code LIKE 'DXB%' OR N.Caption LIKE 'DXB%'\r\n          OR CP.Location_Code LIKE 'DFC%' OR N.Caption LIKE 'DFC%'\r\n          OR CP.Location_Code LIKE 'ALN%' OR N.Caption LIKE 'ALN%'\r\n          OR CP.Location_Code LIKE 'SHJ%' OR N.Caption LIKE 'SHJ%'\r\n          OR CP.Location_Code LIKE 'RAK%' OR N.Caption LIKE 'RAK%'\r\n          OR CP.Location_Code LIKE 'AJM%' OR N.Caption LIKE 'AJM%'\r\n          OR CP.Location_Code LIKE 'FUJ%' OR N.Caption LIKE 'FUJ%'\r\n          OR N.Caption LIKE 'mss-al%' \r\n          OR N.Caption LIKE 'AE%' OR N.Caption LIKE 'ae%' THEN 'UAE'\r\n        WHEN CP.Location_Code LIKE 'KSA%' OR N.Caption LIKE 'KSA%' THEN 'Saudi Arabia'\r\n        WHEN CP.Location_Code LIKE 'PAK%' OR N.Caption LIKE 'PAK%' THEN 'Pakistan'\r\n        WHEN CP.Location_Code LIKE 'QAT%' OR N.Caption LIKE 'QAT%' OR N.Caption LIKE 'qat%' THEN 'Qatar'\r\n        WHEN CP.Location_Code LIKE 'OMN%' OR CP.Location_Code LIKE 'MUS%' OR N.Caption LIKE 'OMN%' OR N.Caption LIKE 'MUS%' THEN 'Oman'\r\n        WHEN CP.Location_Code LIKE 'BAH%' OR N.Caption LIKE 'BAH%' THEN 'Bahrain'\r\n        WHEN CP.Location_Code LIKE 'KWT%' OR N.Caption LIKE 'KWT%' OR N.Caption LIKE 'Kuwait%' THEN 'Kuwait'\r\n        WHEN CP.Location_Code LIKE 'IND%' OR N.Caption LIKE 'IND%' THEN 'India'\r\n        WHEN CP.Location_Code LIKE 'LKA%' OR N.Caption LIKE 'LKA%' THEN 'Sri Lanka'\r\n        WHEN CP.Location_Code LIKE 'EGY%' OR N.Caption LIKE 'EGY%' THEN 'Egypt'\r\n        WHEN CP.Location_Code LIKE 'SGP%' OR N.Caption LIKE 'SGP%' THEN 'Singapore'\r\n        WHEN CP.Location_Code LIKE 'HKG%' OR N.Caption LIKE 'HKG%' THEN 'Hong Kong'\r\n        WHEN CP.Location_Code LIKE 'KE%'   OR N.Caption LIKE 'KE%'   THEN 'Kenya'\r\n        WHEN CP.Region IS NOT NULL AND CP.Region NOT IN ('', 'Global') THEN CP.Region\r\n        WHEN N.Caption LIKE 'Azure%' THEN 'Cloud (Azure)'\r\n        ELSE 'Global' \r\n    END\r\nORDER BY [Down] DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "Location Health",
+      "type": "table"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "dark-red",
+                  "index": 1,
+                  "text": "❗ CRITICAL"
+                },
+                "DEGRADED": {
+                  "color": "orange",
+                  "index": 3,
+                  "text": "🟠 DEGRADED"
+                },
+                "DOWN": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "🔴 DOWN"
+                },
+                "WARNING": {
+                  "color": "yellow",
+                  "index": 2,
+                  "text": "⚠ WARNING"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEALTH_STATE"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PERCENT LOSS"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "orange",
+                      "value": 1
+                    },
+                    {
+                      "color": "red",
+                      "value": 10
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DOWN INT"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "text"
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 53
+      },
+      "id": 34,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "format": "table",
+          "rawSql": "WITH LatestMetrics AS (\r\n    SELECT NodeID, ResponseTime, PercentLoss,\r\n    ROW_NUMBER() OVER (PARTITION BY NodeID ORDER BY Timestamp DESC) as Rank\r\n    FROM ResponseTime_CS_Detail_hist\r\n),\r\nInterfaceIssues AS (\r\n    SELECT NodeID, COUNT(InterfaceID) as DownInt FROM Interfaces WHERE Status = 2 GROUP BY NodeID\r\n)\r\nSELECT\r\n    n.Caption AS [NODE],\r\n    ISNULL(CAST(cp.Site_ID AS NVARCHAR(100)), 'N/A') AS [SITE],\r\n    CASE \r\n        WHEN RTRIM(n.Status) = '2' THEN 'DOWN'\r\n        WHEN RTRIM(n.Status) = '14' THEN 'CRITICAL'\r\n        WHEN RTRIM(n.Status) = '3' THEN 'WARNING'\r\n        WHEN RTRIM(n.Status) = '1' AND (ISNULL(i.DownInt, 0) > 0 OR ISNULL(m.PercentLoss, 0) > 0) THEN 'DEGRADED'\r\n        ELSE 'OTHER'\r\n    END AS [HEALTH_STATE],\r\n    ISNULL(CAST(m.ResponseTime AS VARCHAR) + ' ms', 'N/A') AS [RESPONSE TIME],\r\n    ISNULL(m.PercentLoss, 0) AS [PERCENT LOSS],\r\n    ISNULL(i.DownInt, 0) AS [DOWN INT],\r\n    CAST(n.Description AS NVARCHAR(250)) AS [DESCRIPTION]\r\nFROM NodesData n\r\nLEFT JOIN NodesCustomProperties cp ON n.NodeID = cp.NodeID\r\nLEFT JOIN LatestMetrics m ON n.NodeID = m.NodeID AND m.Rank = 1\r\nLEFT JOIN InterfaceIssues i ON n.NodeID = i.NodeID\r\nWHERE \r\n    (n.Status NOT IN ('1', '9', '11')) -- Capture all non-UP nodes\r\n    OR (n.Status = '1' AND (ISNULL(i.DownInt, 0) > 0 OR ISNULL(m.PercentLoss, 0) > 0)) -- Capture UP but Broken\r\nORDER BY CASE WHEN n.Status = '2' THEN 0 WHEN n.Status = '14' THEN 1 ELSE 2 END, m.PercentLoss DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "NOC OPERATIONAL OVERVIEW • Active & Degraded Issues",
+      "type": "table"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Up"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Down"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Degraded"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Warning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 65
+      },
+      "id": 35,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        },
+        "xTickLabelRotation": -45,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "format": "table",
+          "rawSql": "WITH LatestMetrics AS (\r\n    SELECT NodeID, PercentLoss,\r\n    ROW_NUMBER() OVER (PARTITION BY NodeID ORDER BY Timestamp DESC) as Rank\r\n    FROM ResponseTime_CS_Detail_hist\r\n),\r\nInterfaceIssues AS (\r\n    SELECT NodeID, COUNT(InterfaceID) as DownInt FROM Interfaces WHERE Status = 2 GROUP BY NodeID\r\n),\r\nRegionMapping AS (\r\n    SELECT \r\n        CASE \r\n            WHEN CP.Region LIKE '%UAE%' \r\n              OR CP.Location_Code LIKE 'ABD%' OR N.Caption LIKE 'ABD%'\r\n              OR CP.Location_Code LIKE 'DXB%' OR N.Caption LIKE 'DXB%'\r\n              OR CP.Location_Code LIKE 'DFC%' OR N.Caption LIKE 'DFC%'\r\n              OR CP.Location_Code LIKE 'ALN%' OR N.Caption LIKE 'ALN%'\r\n              OR CP.Location_Code LIKE 'SHJ%' OR N.Caption LIKE 'SHJ%'\r\n              OR CP.Location_Code LIKE 'RAK%' OR N.Caption LIKE 'RAK%'\r\n              OR CP.Location_Code LIKE 'AJM%' OR N.Caption LIKE 'AJM%'\r\n              OR CP.Location_Code LIKE 'FUJ%' OR N.Caption LIKE 'FUJ%'\r\n              OR N.Caption LIKE 'mss-al%' \r\n              OR N.Caption LIKE 'AE%' OR N.Caption LIKE 'ae%' THEN 'UAE'\r\n            WHEN CP.Location_Code LIKE 'KSA%' OR N.Caption LIKE 'KSA%' THEN 'Saudi Arabia'\r\n            WHEN CP.Location_Code LIKE 'PAK%' OR N.Caption LIKE 'PAK%' THEN 'Pakistan'\r\n            WHEN CP.Location_Code LIKE 'QAT%' OR N.Caption LIKE 'QAT%' OR N.Caption LIKE 'qat%' THEN 'Qatar'\r\n            WHEN CP.Location_Code LIKE 'OMN%' OR CP.Location_Code LIKE 'MUS%' OR N.Caption LIKE 'OMN%' OR N.Caption LIKE 'MUS%' THEN 'Oman'\r\n            WHEN CP.Location_Code LIKE 'BAH%' OR N.Caption LIKE 'BAH%' THEN 'Bahrain'\r\n            WHEN CP.Location_Code LIKE 'KWT%' OR N.Caption LIKE 'KWT%' OR N.Caption LIKE 'Kuwait%' OR N.Caption LIKE 'KWT%' THEN 'Kuwait'\r\n            WHEN CP.Location_Code LIKE 'IND%' OR N.Caption LIKE 'IND%' THEN 'India'\r\n            WHEN CP.Location_Code LIKE 'LKA%' OR N.Caption LIKE 'LKA%' THEN 'Sri Lanka'\r\n            WHEN CP.Location_Code LIKE 'EGY%' OR N.Caption LIKE 'EGY%' THEN 'Egypt'\r\n            WHEN CP.Location_Code LIKE 'SGP%' OR N.Caption LIKE 'SGP%' THEN 'Singapore'\r\n            WHEN CP.Location_Code LIKE 'HKG%' OR N.Caption LIKE 'HKG%' THEN 'Hong Kong'\r\n            WHEN CP.Location_Code LIKE 'KE%'   OR N.Caption LIKE 'KE%'   THEN 'Kenya'\r\n            ELSE 'Other' \r\n        END AS [Region],\r\n        N.NodeID, N.Status\r\n    FROM dbo.NodesData AS N\r\n    LEFT JOIN dbo.NodesCustomProperties AS CP ON N.NodeID = CP.NodeID\r\n    WHERE N.Status <> 9\r\n)\r\nSELECT \r\n    Region,\r\n    SUM(CASE WHEN RTRIM(Status) = '1' AND ISNULL(i.DownInt, 0) = 0 AND ISNULL(m.PercentLoss, 0) = 0 THEN 1 ELSE 0 END) AS [Up],\r\n    SUM(CASE WHEN RTRIM(Status) = '1' AND (ISNULL(i.DownInt, 0) > 0 OR ISNULL(m.PercentLoss, 0) > 0) THEN 1 ELSE 0 END) AS [Degraded],\r\n    SUM(CASE WHEN RTRIM(Status) = '2' THEN 1 ELSE 0 END) AS [Down],\r\n    SUM(CASE WHEN RTRIM(Status) NOT IN ('1', '2') THEN 1 ELSE 0 END) AS [Warning]\r\nFROM RegionMapping RM\r\nLEFT JOIN LatestMetrics m ON RM.NodeID = m.NodeID AND m.Rank = 1\r\nLEFT JOIN InterfaceIssues i ON RM.NodeID = i.NodeID\r\nGROUP BY Region\r\nORDER BY [Down] DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "REGIONAL HEALTH • Status Distribution",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "description": "Critical alerts that have NOT been acknowledged. Zero Inbox policy applies.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MinutesActive"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": 30
+                    },
+                    {
+                      "color": "red",
+                      "value": 60
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "max",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Alert Name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 248
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 77
+      },
+      "id": 29,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "dataset": "orionsw_netflow",
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT TOP 50\r\n    AC.Name AS [Alert Name],\r\n    AO.EntityCaption AS [Object],\r\n    DateDiff(minute, AA.TriggeredDateTime, GETDATE()) as [MinutesActive]\r\nFROM AlertActive AA\r\nINNER JOIN AlertObjects AO ON AA.AlertObjectID = AO.AlertObjectID\r\nINNER JOIN AlertConfigurations AC ON AO.AlertID = AC.AlertID\r\nWHERE \r\n    AC.Severity = 2 -- Critical Only\r\n    AND ISNULL(AA.Acknowledged, 0) = 0 -- FIX: Treat NULL as Unacknowledged\r\nORDER BY AA.TriggeredDateTime DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "🔥 Active Critical Alerts (Unacknowledged)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "description": "High Speed Interfaces (>1Gbps) or Core/Uplink links that are DOWN.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 77
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "dataset": "orionsw_netflow",
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT TOP 50 \r\n    N.Caption AS NodeName,\r\n    I.Caption AS InterfaceName\r\nFROM Interfaces I\r\nINNER JOIN NodesData N ON I.NodeID = N.NodeID\r\nWHERE \r\n    I.Status = 2 -- Down\r\n    AND N.Status != 9 -- Node is not Unmanaged\r\n    AND (\r\n        I.InterfaceSpeed >= 1000000000 -- 1Gbps+\r\n        OR I.Caption LIKE '%Uplink%' \r\n        OR I.Caption LIKE '%Core%' \r\n        OR I.Caption LIKE '%Tunnel%'\r\n        OR I.InterfaceAlias LIKE '%Backbone%'\r\n        OR I.InterfaceAlias LIKE '%Transit%'\r\n    );",
+          "refId": "A"
+        }
+      ],
+      "title": "✂️ Down Core Interfaces",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 90
+      },
+      "id": 8,
+      "options": {
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  Vendor AS metric,\r\n  COUNT(n.NodeID) AS value\r\nFROM NodesData n\r\nJOIN NodesCustomProperties cp ON n.NodeID = cp.NodeID\r\nGROUP BY Vendor",
+          "refId": "A"
+        }
+      ],
+      "title": "Nodes by Vendor",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "description": "Nodes that are actively DOWN (Excluding Unmanaged/External).",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "2": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "3": {
+                  "color": "yellow",
+                  "index": 1,
+                  "text": "WARNING"
+                },
+                "14": {
+                  "color": "purple",
+                  "index": 2,
+                  "text": "CRITICAL"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 90
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "showUnfilled": true,
+        "text": {},
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "dataset": "orionsw_netflow",
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT TOP 50 \r\n    N.Caption AS NodeName,\r\n    N.IP_Address,\r\n    N.Status\r\nFROM NodesData N\r\nWHERE N.Status NOT IN (1, 9, 11) -- Exclude Up, Unmanaged, External\r\nORDER BY N.Status ASC;",
+          "refId": "A"
+        }
+      ],
+      "title": "💀 Nodes with Problems (Status != Up)",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 97
+      },
+      "id": 52,
+      "panels": [],
+      "title": "🟡 SCREEN 2: HEALTH CHECK (Performance & Risk)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 23,
+        "x": 0,
+        "y": 98
+      },
+      "id": 101,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "dataset": "orionsw_netflow",
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT TOP 50\r\n    N.Caption AS NodeName,\r\n    H.UniqueName AS Sensor,\r\n    H.Value,\r\n    H.Unit,\r\n    H.Message\r\nFROM HWH_HardwareItem H\r\nINNER JOIN NodesData N ON H.HardwareInfoID = N.NodeID \r\nWHERE H.Status NOT IN (1, 0, 27) -- Exclude Normal, Unknown, Disabled\r\nORDER BY H.Status DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "🌡️ Hardware Health (Grey Failures)",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 108
+      },
+      "id": 24,
+      "panels": [],
+      "title": "🔵 SCREEN 3: BUSINESS VIEW (Services & Capacity)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "UP"
+                },
+                "2": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "DOWN"
+                },
+                "3": {
+                  "color": "yellow",
+                  "index": 2,
+                  "text": "WARNING"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 109
+      },
+      "id": 12,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "dataset": "orionsw_netflow",
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    S.ServiceName,\r\n    COUNT(SA.ProbeID) as Probes,\r\n    MAX(SA.LastStatus) as Status\r\nFROM NetPath_EndpointServices S\r\nJOIN NetPath_EndpointServiceAssignments SA ON S.EndpointServiceID = SA.EndpointServiceID\r\nGROUP BY S.ServiceName;",
+          "refId": "A"
+        }
+      ],
+      "title": "☁️ NetPath Business Services",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 109
+      },
+      "id": 14,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "dataset": "orionsw_netflow",
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT TOP 20\r\n    N.Caption AS NodeName,\r\n    V.Caption AS Drive,\r\n    V.VolumePercentUsed\r\nFROM Volumes V\r\nINNER JOIN NodesData N ON V.NodeID = N.NodeID\r\nWHERE \r\n    V.VolumeType = 'Fixed Disk' \r\n    AND V.VolumePercentUsed > 90 \r\nORDER BY V.VolumePercentUsed DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "💾 Critical Disk Capacity (>90%)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "bew91v73csu80b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 95
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 119
+      },
+      "id": 3,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "dataset": "SolarWindsOrion",
+          "datasource": {
+            "type": "mssql",
+            "uid": "bew91v73csu80b"
+          },
+          "format": "table",
+          "rawSql": "SELECT TOP 50\r\n      n.Caption AS NodeName\r\n    , v.Caption AS VolumeName\r\n    , v.Status\r\n    , v.VolumeType\r\n    , v.VolumePercentUsed\r\nFROM [dbo].[Volumes] v\r\nINNER JOIN [dbo].[Nodes] n ON v.NodeID = n.NodeID\r\nWHERE v.VolumeType IN ('Fixed Disk', 'Mount Point', 'Network Disk')\r\n  AND v.Status <> 1 -- 1 = Up\r\nORDER BY v.VolumePercentUsed DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "Critical Volumes (High Usage / Not Up)",
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "refresh": "30s",
+  "schemaVersion": 41,
+  "tags": [
+    "SolarWinds",
+    "Command Center"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "SolarWinds Command center dashboard",
+  "uid": "solarwinds-cc-01",
+  "version": 60
+}
